@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanislas BASQUIN — Data Analytics Engineer • Power-BI &amp; Fabric</title>
+<meta name="description" content="CV en ligne de Stanislas BASQUIN, Data Analytics Engineer • Power-BI &amp; Fabric.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06010A; --coffee-deep:#0F0208; --coffee:#1A0508; --coffee-raised:#2B080D;
+  --coffee-warm:#430E10; --ember:#641818; --bordeaux:#8B2020;
+  --gold-deep:#8B6030; --gold:#B8834A; --gold-bright:#D4A050; --gold-flash:#F0C870;
+  --ivory:#F5EDDA; --ivory-muted:#D9C8A8; --parchment:#A88458; --parchment-dim:#785E42;
+  --display:'Fraunces','Cormorant Garamond',Georgia,serif;
+  --sans:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --r1:.5rem; --r2:1rem; --r3:1.75rem; --r4:3rem; --r5:5rem; --r6:8rem;
+  --ease-out:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans); font-weight:300; font-size:17px; line-height:1.65;
+  color:var(--ivory); background:var(--coffee-deep);
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+/* atmosphere */
+.bg{position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 12% -5%, rgba(139,96,48,.16), transparent 55%),
+    radial-gradient(90% 70% at 100% 0%, rgba(139,32,32,.12), transparent 50%),
+    radial-gradient(120% 120% at 50% 120%, rgba(67,14,16,.45), transparent 60%),
+    var(--coffee-deep);
+}
+.grain{position:fixed; inset:0; z-index:-1; opacity:.05; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.wrap{max-width:1120px; margin:0 auto; padding:0 clamp(1.25rem,4vw,3rem)}
+.narrow{max-width:820px}
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+
+/* type scale */
+.display-xl{font-family:var(--display); font-weight:300; font-optical-sizing:auto;
+  font-variation-settings:"opsz" 144; letter-spacing:-.022em; line-height:1.0;
+  font-size:clamp(2.6rem,7.5vw,5.4rem)}
+.display-l{font-family:var(--display); font-weight:300; font-variation-settings:"opsz" 144;
+  letter-spacing:-.022em; line-height:1.05; font-size:clamp(2rem,5vw,3.4rem)}
+.lede{font-family:var(--display); font-style:italic; font-weight:300;
+  font-size:clamp(1.15rem,2vw,1.5rem); color:var(--ivory-muted); line-height:1.4}
+.eyebrow{font-family:var(--mono); font-weight:500; font-size:.72rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold-bright)}
+.mono{font-family:var(--mono); font-weight:400; font-size:.78rem; color:var(--parchment)}
+.rule-gold{width:56px; height:1px; border:0; margin:1.4rem 0;
+  background:linear-gradient(90deg,transparent,var(--gold-bright),transparent)}
+.sec-head{margin-bottom:clamp(2rem,4vw,3rem)}
+.sec-head .eyebrow{display:block; margin-bottom:.9rem}
+
+/* HERO */
+.hero{padding-top:clamp(3rem,7vw,5.5rem); padding-bottom:clamp(2.5rem,5vw,4rem)}
+.monogram{width:84px; height:84px; border-radius:50%; display:grid; place-items:center;
+  border:1px solid var(--gold-bright); color:var(--gold-flash);
+  font-family:var(--display); font-style:italic; font-weight:400; font-size:1.9rem;
+  box-shadow:0 0 0 6px rgba(212,160,80,.06), inset 0 0 24px rgba(240,200,112,.08);
+  margin-bottom:1.8rem}
+.hero h1{margin:.3rem 0 .6rem}
+.hero .lede{margin-bottom:1.6rem}
+.hero p.intro{max-width:60ch; color:var(--ivory-muted); font-weight:300}
+.figs{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px; margin:2.6rem 0 2.4rem; background:rgba(212,160,80,.14);
+  border:1px solid rgba(212,160,80,.14)}
+.fig{background:var(--coffee-deep); padding:1.2rem 1.3rem}
+.fig-n{display:block; font-family:var(--display); font-style:italic; font-weight:400;
+  font-size:2rem; color:var(--gold-flash); line-height:1}
+.fig-l{display:block; font-family:var(--mono); font-size:.72rem; letter-spacing:.04em;
+  color:var(--parchment); margin-top:.5rem; text-transform:uppercase}
+.cta-row{display:flex; flex-wrap:wrap; gap:.9rem; margin-top:.4rem}
+.btn{font-family:var(--mono); font-weight:500; font-size:.74rem; letter-spacing:.12em;
+  text-transform:uppercase; text-decoration:none; padding:.9rem 1.5rem;
+  border:1px solid var(--gold-bright); transition:.35s var(--ease-out)}
+.btn-primary{background:var(--gold-bright); color:var(--ink)}
+.btn-primary:hover{background:var(--gold-flash); border-color:var(--gold-flash)}
+.btn-ghost{color:var(--gold-bright); background:transparent}
+.btn-ghost:hover{background:rgba(212,160,80,.1); color:var(--gold-flash)}
+
+/* EXPERIENCE timeline */
+.timeline{position:relative; margin-left:.5rem; padding-left:clamp(2.2rem,5vw,3.2rem);
+  border-left:1px solid rgba(212,160,80,.28)}
+.exp{position:relative; padding:0 0 2.2rem}
+.exp+.exp{border-top:1px solid rgba(212,160,80,.1)}
+.exp summary{list-style:none; cursor:pointer; display:grid;
+  grid-template-columns:auto 1fr auto auto; gap:.6rem 1.4rem; align-items:start;
+  padding:1.8rem 0 1.1rem; outline:none}
+.exp summary::-webkit-details-marker{display:none}
+.exp-num{font-family:var(--display); font-style:italic; font-weight:400; font-size:1.15rem;
+  color:var(--gold-bright); position:absolute; left:calc(-1*clamp(2.2rem,5vw,3.2rem) - .5rem);
+  width:clamp(2.2rem,5vw,3.2rem); text-align:center; top:1.9rem}
+.exp-num::before{content:""; position:absolute; left:50%; top:-.55rem; transform:translateX(-50%);
+  width:7px; height:7px; border-radius:50%; background:var(--gold-bright);
+  box-shadow:0 0 0 4px var(--coffee-deep), 0 0 10px rgba(240,200,112,.5)}
+.exp-company{font-family:var(--display); font-weight:500; font-size:1.3rem; color:var(--ivory);
+  display:flex; align-items:center; gap:.7rem; line-height:1.2}
+.exp-role{display:block; color:var(--ivory-muted); font-size:.98rem; margin-top:.25rem}
+.exp-when{text-align:right}
+.exp-dates{display:block; font-family:var(--mono); font-size:.75rem; color:var(--gold-bright);
+  letter-spacing:.03em; white-space:nowrap}
+.exp-meta{display:block; font-family:var(--mono); font-size:.68rem; color:var(--parchment);
+  text-transform:uppercase; letter-spacing:.06em; margin-top:.35rem}
+.pip-now{font-family:var(--mono); font-weight:500; font-size:.6rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--bordeaux); border:1px solid var(--bordeaux);
+  padding:.16rem .5rem; border-radius:2px}
+.exp-chevron{align-self:center; width:9px; height:9px; border-right:1.5px solid var(--gold-bright);
+  border-bottom:1.5px solid var(--gold-bright); transform:rotate(45deg);
+  transition:transform .35s var(--ease-out)}
+.exp[open] .exp-chevron{transform:rotate(-135deg)}
+.exp-body{padding:0 0 .5rem; max-width:72ch; animation:fade .5s var(--ease-out)}
+@keyframes fade{from{opacity:0; transform:translateY(-4px)}to{opacity:1}}
+.exp-ctx{color:var(--ivory-muted); margin-bottom:1.3rem}
+.exp-block{margin-bottom:1.4rem}
+.sub{display:block; font-family:var(--mono); font-size:.68rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:.7rem}
+.exp-list{list-style:none}
+.exp-list li{position:relative; padding-left:1.2rem; margin-bottom:.55rem; color:var(--ivory-muted)}
+.exp-list li::before{content:""; position:absolute; left:0; top:.7em; width:5px; height:1px;
+  background:var(--gold-bright)}
+.exp-env{color:var(--parchment); font-size:.93rem; margin-bottom:.6rem; line-height:1.55}
+
+/* SKILLS — bloc vitrine Microsoft / Fabric */
+.ms-vitrine{margin-bottom:clamp(2rem,4vw,3rem)}
+.ms-vitrine-head{margin-bottom:1.6rem}
+.ms-vitrine-head .eyebrow{display:block; margin-bottom:.7rem}
+.ms-vitrine-title{font-family:var(--display); font-weight:300;
+  font-variation-settings:"opsz" 144; letter-spacing:-.022em; line-height:1.05;
+  font-size:clamp(1.45rem,2.8vw,2rem); color:var(--ivory)}
+.ms-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+  background:rgba(212,160,80,.22); border:1px solid rgba(212,160,80,.22)}
+.ms-item{background:var(--coffee-raised); padding:1.5rem 1.5rem;
+  transition:background .4s var(--ease-out)}
+.ms-item:hover{background:var(--coffee-warm)}
+.ms-tech{display:block; font-family:var(--mono); font-weight:500; font-size:.84rem;
+  color:var(--gold-flash); letter-spacing:.06em; margin-bottom:.6rem; text-transform:uppercase}
+.ms-desc{display:block; font-family:var(--sans); font-weight:300; font-size:.88rem;
+  color:var(--ivory-muted); line-height:1.5}
+.ms-divider{width:100%; height:1px; border:0; margin:clamp(2rem,4vw,3rem) 0;
+  background:linear-gradient(90deg,transparent,rgba(212,160,80,.25) 30%,rgba(212,160,80,.25) 70%,transparent)}
+
+/* SKILLS — grille secondaire */
+.skills-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1px;
+  background:rgba(212,160,80,.10); border:1px solid rgba(212,160,80,.10)}
+.skill-card{background:var(--coffee-deep); padding:1.4rem 1.35rem; transition:background .4s var(--ease-out)}
+.skill-card:hover{background:var(--coffee-raised)}
+.skill-cat{font-family:var(--display); font-weight:500; font-size:1rem; color:var(--ivory);
+  margin-bottom:.9rem; padding-bottom:.65rem; border-bottom:1px solid rgba(212,160,80,.16)}
+.chips{list-style:none; display:flex; flex-wrap:wrap; gap:.45rem}
+.chip{font-family:var(--mono); font-size:.7rem; color:var(--ivory-muted);
+  border:1px solid rgba(212,160,80,.25); padding:.32rem .6rem; border-radius:2px;
+  cursor:default; transition:.3s var(--ease-out)}
+.chip:hover{border-color:var(--gold-flash); color:var(--gold-flash)}
+/* chip or : technos Microsoft secondaires */
+.chip-ms{color:var(--gold-bright); border-color:rgba(212,160,80,.5)}
+.chip-ms:hover{color:var(--gold-flash); border-color:var(--gold-flash)}
+
+@media (max-width:900px){
+  .ms-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .ms-grid{grid-template-columns:1fr}
+}
+
+/* EDUCATION */
+.edu{display:grid; grid-template-columns:minmax(140px,200px) 1fr; gap:1.4rem;
+  padding:1.7rem 0; border-top:1px solid rgba(212,160,80,.12)}
+.edu:first-child{border-top:0}
+.edu-when{font-family:var(--mono); font-size:.74rem; color:var(--gold-bright);
+  letter-spacing:.03em; padding-top:.3rem}
+.edu-diploma{font-family:var(--display); font-weight:400; font-size:1.25rem; color:var(--ivory);
+  line-height:1.25}
+.edu-school{display:block; font-family:var(--mono); font-size:.72rem; color:var(--parchment);
+  text-transform:uppercase; letter-spacing:.08em; margin:.5rem 0 .9rem}
+.edu-desc{color:var(--ivory-muted); font-size:.96rem; max-width:66ch}
+.edu-bul{margin-top:.9rem; max-width:66ch}
+.edu-bul li{font-size:.92rem}
+
+/* LANGUAGES */
+.langs{list-style:none; display:flex; flex-wrap:wrap; gap:.7rem}
+.lang{font-family:var(--mono); font-size:.82rem; color:var(--ivory); letter-spacing:.02em;
+  border:1px solid rgba(212,160,80,.3); padding:.55rem 1rem}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(212,160,80,.18); padding:clamp(3rem,6vw,5rem) 0}
+.foot-cta{font-family:var(--display); font-weight:300; font-size:clamp(1.6rem,4vw,2.6rem);
+  line-height:1.15; letter-spacing:-.02em; margin-bottom:1.6rem; max-width:18ch}
+.foot-cta em{font-style:italic; color:var(--gold-flash)}
+.foot-meta{font-family:var(--mono); font-size:.68rem; color:var(--parchment-dim);
+  letter-spacing:.06em; margin-top:2.4rem; line-height:1.9}
+.foot-meta a{color:var(--parchment); text-decoration:none}
+.foot-meta a:hover{color:var(--gold-bright)}
+
+/* reveal */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal.in{opacity:1; transform:none}
+
+/* focus */
+a:focus-visible, summary:focus-visible{outline:2px solid var(--gold-flash); outline-offset:3px}
+
+@media (max-width:680px){
+  body{font-size:16px}
+  .exp summary{grid-template-columns:auto 1fr; gap:.3rem .8rem}
+  .exp-num{position:static; width:auto; text-align:left; top:auto; grid-row:1; grid-column:1; padding-top:.1rem}
+  .exp-num::before{display:none}
+  .exp-id{grid-column:2; grid-row:1}
+  .exp-when{grid-column:1 / -1; grid-row:2; text-align:left; margin-top:.2rem}
+  .exp-dates{display:inline}
+  .exp-meta{display:inline; margin-left:.7rem}
+  .exp-chevron{position:absolute; right:0; top:1.95rem}
+  .exp{position:relative}
+  .timeline{padding-left:1.1rem; margin-left:0}
+  .edu{grid-template-columns:1fr; gap:.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{opacity:1; transform:none; transition:none}
+  .exp-body{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="grain"></div>
+
+<header class="hero wrap">
+  <div class="monogram" aria-hidden="true">SB</div>
+  <span class="eyebrow">Curriculum Vitæ · Réf. NOAH-LABS-CHARTE-20260603-v1</span>
+  <hr class="rule-gold">
+  <h1 class="display-xl">Stanislas BASQUIN</h1>
+  <p class="lede">Data Analytics Engineer • Power-BI &amp; Fabric</p>
+  <p class="intro">Data Analyst spécialisé Power BI et Microsoft Fabric, j’aide les équipes métiers à transformer des besoins complexes en modèles sémantiques clairs, KPI fiables et tableaux de bord gouvernés. Fort d’expériences exigeantes chez Ernst &amp; Young et CGI, je conçois des solutions analytiques robustes, orientées décision et adoption utilisateur, en m’appuyant sur une maîtrise avancée de SQL, DAX et des plateformes data modernes.</p>
+  <div class="figs"><div class="fig"><span class="fig-n">+4</span><span class="fig-l">ans d'expérience Data &amp; BI</span></div><div class="fig"><span class="fig-n">3</span><span class="fig-l">environnements de conseil — EY · CGI · Noah</span></div><div class="fig"><span class="fig-n">6</span><span class="fig-l">langues de travail</span></div><div class="fig"><span class="fig-n">DP-600 / 700</span><span class="fig-l">certifications Microsoft en préparation</span></div></div>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="mailto:stanislas@noah-consultant.com">Me contacter</a>
+    <a class="btn btn-ghost" href="https://www.doyoubuzz.com/s-basquin/" target="_blank" rel="noopener">Profil en ligne</a>
+  </div>
+</header>
+
+<section class="wrap" id="experience">
+  <div class="sec-head">
+    <span class="eyebrow">Parcours</span>
+    <h2 class="display-l">Expérience</h2>
+  </div>
+  <div class="timeline">
+
+    <details class="exp reveal" open>
+      <summary class="exp-head">
+        <span class="exp-num">01</span>
+        <span class="exp-id">
+          <span class="exp-company">Noah Labs <span class="pip-now">En poste</span></span>
+          <span class="exp-role">Noah Labs – Fondateur, Consultant Data &amp; IA</span>
+        </span>
+        <span class="exp-when">
+          <span class="exp-dates">Nov. 2025 — Aujourd&#x27;hui</span>
+          <span class="exp-meta">Freelance</span>
+        </span>
+        <span class="exp-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="exp-body">
+        <p class='exp-ctx'>Noah Labs est un studio de conseil en data analytics et intelligence artificielle que j’ai fondé pour accompagner principalement des PME et ETI dans la structuration de leurs usages data, entre Paris et Bordeaux. L’activité couvre la chaîne complète, du data engineering à la restitution BI Power BI, en passant par le MLOps avec Dataiku, avec une spécialisation croissante sur Microsoft Fabric pour répondre aux environnements majoritairement Microsoft 365. Dans ce cadre, je mène notamment un projet exploratoire pour un acteur international du secteur luxe, visant à concevoir une architecture data moderne combinant Fabric, Power BI et Dataiku afin de démontrer la valeur d’une plateforme unifiée (projet “vitrine” en cours de conception, non encore industrialisé).</p>
+        <div class='exp-block'><span class='sub'>Interventions</span><ul class='exp-list'>
+        <li>Réaliser des rapports d’opportunités data pour des clients PME/ETI, en identifiant les leviers d’amélioration par la donnée et l’IA, puis en priorisant les cas d’usage à forte valeur business.</li>
+        <li>Concevoir une architecture cible de plateforme data basée sur Microsoft Fabric, articulant Lakehouse/Warehouse, modèles sémantiques et pipelines, afin de centraliser les données métier et simplifier l’accès pour les analystes.</li>
+        <li>Définir, dans le cadre du projet exploratoire luxe, une infra combinant ingestion depuis ERP/CRM et sources e‑commerce, stockage unifié dans OneLake, modélisation sémantique centralisée, et exposition via dashboards Power BI gouvernés.</li>
+        <li>Intégrer Dataiku dans cette architecture comme brique de préparation avancée et de MLOps (feature engineering, scoring, orchestration de scénarios analytiques) consommés ensuite dans Fabric/Power BI.</li>
+        <li>Prototyper des dashboards Power BI de pilotage (ventes, performance produit, parcours client) en s’appuyant sur les modèles sémantiques Fabric et sur une gouvernance fine des KPI.</li>
+        <li>Préparer activement les certifications DP‑600 et DP‑700 pour aligner la pratique terrain (Fabric + Power BI) avec les standards Microsoft et les attentes des projets Davidson/DEKRA</li>
+      </ul></div><div class='exp-block'><span class='sub'>Résultats</span><ul class='exp-list'>
+        <li>Structuration d’une vision cible de plateforme data : définition d’une architecture unifiée Fabric–Power BI–Dataiku permettant de réduire la fragmentation des données, d’améliorer la traçabilité et de simplifier l’accès aux informations clés pour les métiers.</li>
+        <li>Accélération du time‑to‑value analytique : conception de patterns réutilisables (ingestion vers Lakehouse, préparation Dataiku, exposition sémantique, dashboards Fabric/Power BI) facilitant le passage d’un cas d’usage exploratoire à un MVP industrialisable.</li>
+        <li>Renforcement de la crédibilité sur Fabric : mise en pratique concrète des concepts DP‑600 (Lakehouse, Semantic Models, Dataflows Gen2, Pipelines OneLake) dans un projet démonstrateur complexe, positionnant le profil comme opérationnel sur la stack plateforme recherchée par DEKRA.</li>
+        <li>Valeur démonstrative pour les clients : les prototypes et schémas d’architecture élaborés servent de support de décision pour les directions data et métiers, en clarifiant les bénéfices tangibles d’une modernisation vers Microsoft Fabric.</li>
+      </ul></div><div class='exp-block'><span class='sub'>Stack &amp; environnement</span><p class='exp-env'>Stack plateforme : Microsoft Fabric (Lakehouse, Warehouse, Dataflows Gen2, Semantic Models, Pipelines, OneLake), Power BI (Desktop, Service, DAX, Power Query), Dataiku pour préparation avancée et MLOps.</p><p class='exp-env'>Données &amp; intégration : ingestion depuis ERP/CRM, systèmes e‑commerce et fichiers métier, modélisation dans des modèles sémantiques partagés, gouvernance KPI et documentation des produits de données.</p><p class='exp-env'>Méthodologies : approche MVP (projets pilotes exploratoires), cadrage fonctionnel serré avec les métiers, conception d’architectures de référence orientées Fabric, démarche de montée en compétence structurée autour des certifications Microsoft.</p><p class='exp-env'>Environnement humain : travail en direct avec dirigeants de PME/ETI et responsables data/IT, interactions fréquentes avec équipes métier (marketing, vente, finance) pour aligner architecture technique, cas d’usage et valeur business.</p></div>
+      </div>
+    </details>
+
+    <details class="exp reveal" >
+      <summary class="exp-head">
+        <span class="exp-num">02</span>
+        <span class="exp-id">
+          <span class="exp-company">Ernst &amp; Young </span>
+          <span class="exp-role">Consultant Senior Data Analytics BI</span>
+        </span>
+        <span class="exp-when">
+          <span class="exp-dates">Mars 2025 — Oct. 2025</span>
+          <span class="exp-meta">CDI · Paris</span>
+        </span>
+        <span class="exp-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="exp-body">
+        <p class='exp-ctx'>Au sein du département Data Analytics d’Ernst &amp; Young, l’enjeu était de fiabiliser et d’industrialiser le reporting stratégique de directions financières, marketing et opérationnelles, dans un contexte multi-stakeholders où les décisions de pilotage s’appuyaient fortement sur des dashboards Power BI existants. La mission s’inscrivait dans une phase de montée en maturité BI, avec des attentes fortes sur la normalisation des sources, la cohérence des KPI entre entités et l’amélioration de la performance technique des modèles et des rapports.</p>
+        <div class='exp-block'><span class='sub'>Interventions</span><ul class='exp-list'>
+        <li>Réaliser des audits métiers et techniques complets pour cartographier les processus décisionnels, les flux de données et les KPI utilisés dans les dashboards stratégiques.</li>
+        <li>Animer des ateliers avec les équipes finance, opérations et SI pour clarifier les besoins, formaliser la logique métier derrière les indicateurs et prioriser les évolutions analytiques.</li>
+        <li>Concevoir et déployer des tableaux de bord Power BI dynamiques intégrant des KPI financiers et opérationnels, avec modèles sémantiques gouvernés et normalisation des sources.</li>
+        <li>Mettre en place des pipelines Power BI automatisés (rafraîchissements, paramétrage SharePoint, gestion des sources) afin de sécuriser la production du reporting récurrent.</li>
+        <li>Optimiser les requêtes SQL et les mesures DAX (filtres contextuels complexes, calculs de ratios, gestion du temps) pour améliorer la performance et la stabilité des modèles de données.</li>
+        <li>Documenter les définitions d’indicateurs, les règles métier, les responsabilités de reporting et les bonnes pratiques d’usage pour renforcer la gouvernance BI.</li>
+        <li>Former et accompagner les utilisateurs métiers (direction financière, contrôleurs de gestion, équipes opérationnelles) à la lecture des dashboards, à l’appropriation des KPI et à l’utilisation de Power BI en autonomie</li>
+      </ul></div><div class='exp-block'><span class='sub'>Résultats</span><ul class='exp-list'>
+        <li>Fiabilisation du reporting décisionnel : contribution à la réduction des écarts d’interprétation des KPI entre équipes métiers et SI grâce à une clarification des règles métier, des sources de données et des définitions d’indicateurs (alignement des tableaux de bord autour d’un dictionnaire commun et d’un modèle sémantique centralisé).</li>
+        <li>Amélioration de la performance analytique : optimisation des requêtes SQL et des mesures DAX ayant permis de réduire les temps de chargement des rapports les plus critiques et de sécuriser les rafraîchissements automatiques dans les créneaux de production.</li>
+        <li>Renforcement de la lisibilité et de l’adoption : conception de tableaux de bord plus ergonomiques et orientés décision, facilitant la préparation des comités de pilotage et augmentant l’usage des rapports auprès des équipes financières et opérationnelles.</li>
+        <li>Gouvernance BI structurée : mise en place d’un socle documentaire (règles métier, ownership des KPI, bonnes pratiques d’utilisation) qui a facilité la maintenance et l’onboarding de nouveaux collaborateurs sur les rapports existants.</li>
+        <li>Autonomisation des utilisateurs : montée en compétence des équipes métiers sur Power BI, leur permettant de formuler des demandes d’évolution plus structurées et de réaliser certaines analyses en self‑service à partir du modèle sémantique gouverné.</li>
+      </ul></div><div class='exp-block'><span class='sub'>Stack &amp; environnement</span><p class='exp-env'>Stack BI &amp; data : Power BI (Desktop &amp; Service), modèles sémantiques, DAX avancé, Power Query (M), intégration SharePoint, bases analytiques SQL Server / PostgreSQL, Dataiku pour certains pipelines complémentaires.</p><p class='exp-env'>Data &amp; pipelines : pipelines Power BI automatisés, normalisation des sources, gestion des rafraîchissements, intégration de données multi-sources (SharePoint, datawarehouse, datamarts) dans un modèle centralisé orienté performance.</p><p class='exp-env'>Méthodologies : approche BI moderne self‑service encadrée, mode Agile (itérations courtes, revues régulières avec métiers), cadrage fonctionnel structuré des besoins analytiques et des KPI.</p><p class='exp-env'>Environnement humain : équipe transverse de consultants BI/Data, interaction quotidienne avec finance, opérations, SI et sponsors métiers, contexte multi-stakeholders avec forte exposition à la direction générale</p></div>
+      </div>
+    </details>
+
+    <details class="exp reveal" >
+      <summary class="exp-head">
+        <span class="exp-num">03</span>
+        <span class="exp-id">
+          <span class="exp-company">Noah Consultant </span>
+          <span class="exp-role">Consultant Data Analytics</span>
+        </span>
+        <span class="exp-when">
+          <span class="exp-dates">Mars 2024 — Juin 2024</span>
+          <span class="exp-meta"></span>
+        </span>
+        <span class="exp-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="exp-body">
+        <p class='exp-ctx'>Les maisons de Champagne de prestige évoluent dans un environnement luxe/agroalimentaire où la qualité des décisions liées à la R&amp;D, au pricing et à la supply chain repose de plus en plus sur la donnée. La mission intervient dans un contexte de maturité hétérogène des outils data, avec des flux dispersés et une volonté de structurer un pilotage analytique plus robuste pour la performance et l’innovation produit. L’objectif était d’auditer la chaîne décisionnelle data, d’identifier les goulots d’étranglement et de concevoir des solutions BI adaptées aux enjeux métier (R&amp;D, direction opérationnelle).</p>
+        <div class='exp-block'><span class='sub'>Interventions</span><ul class='exp-list'>
+        <li>Conduire des audits complets des flux de données métiers, en cartographiant les processus existants et les systèmes utilisés par les équipes R&amp;D et opérationnelles.</li>
+        <li>Identifier les lacunes analytiques (données manquantes, indicateurs peu exploités, redondances) et prioriser les axes d’amélioration en concertation avec les parties prenantes.</li>
+        <li>Concevoir des scénarios de solutions BI (Power BI, Dataiku) pour répondre aux cas d’usage clés : suivi de performance R&amp;D, pilotage des essais, analyses de qualité, benchmark vitivinicole.</li>
+        <li>Proposer une architecture cible de pipelines ETL (Talend, Dataiku) permettant de fiabiliser l’alimentation en données et de structurer les datamarts métiers.</li>
+        <li>Concevoir et prototyper des dashboards interactifs avec Power BI et Tableau pour illustrer les gains possibles en lisibilité, en profondeur d’analyse et en partage de l’information.</li>
+        <li>Formaliser un écosystème de gestion des connaissances sous Notion, afin de capitaliser les données, les analyses et les bonnes pratiques pour les équipes vitivinicoles.</li>
+      </ul></div><div class='exp-block'><span class='sub'>Résultats</span><ul class='exp-list'>
+        <li>Vision consolidée de la chaîne data : mise à disposition d’une cartographie claire des flux de données et des points de friction, permettant aux décideurs de prioriser les investissements et les chantiers d’optimisation.</li>
+        <li>Alignement des parties prenantes : les ateliers et restitutions ont facilité un langage commun autour des KPI et de la gouvernance des données, réduisant les incompréhensions entre R&amp;D, opérationnel et direction.</li>
+        <li>Accélération de la feuille de route BI : les recommandations sur l’architecture ETL, les datamarts et les outils ont servi de base à un plan d’action concret pour déployer des solutions Power BI/Dataiku adaptées au métier.</li>
+        <li>Amélioration de la capacité d’analyse : les prototypes de dashboards ont démontré la valeur d’une visualisation structurée pour le suivi des essais, des prix et des indicateurs de performance, renforçant l’appétence des équipes pour le pilotage data‑driven.</li>
+      </ul></div><div class='exp-block'><span class='sub'>Stack &amp; environnement</span><p class='exp-env'>Stack data &amp; BI : Power BI, Tableau, Dataiku (conception et optimisation de pipelines), Talend (workflows et API d’intégration), Notion pour la gestion des connaissances.</p><p class='exp-env'>Données &amp; architecture : bases PostgreSQL et MongoDB, datamarts métiers vitivinicoles, pipelines ETL industrialisés pour collecte, transformation et scoring.</p><p class='exp-env'>Méthodologies : diagnostic data &amp; analytics, approche MVP pour les dashboards, gestion de projet via Jira, documentation structurée et collaboration transverse.</p><p class='exp-env'>Environnement humain : collaboration avec équipes R&amp;D, opérationnelles et direction, contexte sectoriel spécifique (vitivinicole/luxe) impliquant gestion de données sensibles et enjeux de positionnement stratégique.</p></div>
+      </div>
+    </details>
+
+    <details class="exp reveal" >
+      <summary class="exp-head">
+        <span class="exp-num">04</span>
+        <span class="exp-id">
+          <span class="exp-company">CGI </span>
+          <span class="exp-role">Consultant Data - Business Intelligence</span>
+        </span>
+        <span class="exp-when">
+          <span class="exp-dates">Juil. 2023 — Nov. 2023</span>
+          <span class="exp-meta"></span>
+        </span>
+        <span class="exp-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="exp-body">
+        <p class='exp-ctx'>Projet : Maintenance et développement d&#x27;API pour la gestion de système ERP en Industrie Retail</p>
+        <div class='exp-block'><span class='sub'>Interventions</span><ul class='exp-list'>
+        <li>Maintenance et développement d&#x27;API de type REST pour la gestion d&#x27;un système ERP dans le secteur etail. Les API ont été développées dans l&#x27;écosystème Talend, avec des tests rigoureux effectués via</li>
+        <li>Postman. Ce projet a représenté un challenge technique ambitieux sur une technologie nouvelle, et a inclus une composante de formation pour favoriser la montée en compétence des collaborateurs.</li>
+        <li>Développement des API REST pour la gestion du système ERP</li>
+        <li>Conception des API REST en fonction des besoins métier et des spécifications fonctionnelles du système ERP.</li>
+        <li>Développement des endpoints des API pour la gestion des données du système ERP, incluant les opérations CRUD (Create, Read, Update, Delete).</li>
+        <li>Intégration des API dans l&#x27;écosystème Talend pour automatiser les flux de données et optimiser les processus de traitement.</li>
+        <li>Tests des API avec Postman</li>
+        <li>Création de scénarios de tests pour valider le bon fonctionnement des API en termes de performance, sécurité et précision des données.</li>
+        <li>Utilisation de Postman pour tester les différents endpoints des API et assurer leur fiabilité avant leur mise en production.</li>
+        <li>Détection et correction des bugs ou des anomalies lors des tests, garantissant le respect des exigences qualité.</li>
+        <li>Formation et montée en compétence sur la nouvelle technologie</li>
+        <li>Formation initiale par les collaborateurs internes sur les technologies utilisées dans le développement des API et l&#x27;environnement Talend.</li>
+        <li>Participation aux premières phases du projet pour comprendre les spécificités techniques et les processus associés.</li>
+        <li>Apprentissage pratique à travers des sessions de codage supervisées et des retours d&#x27;expérience de l&#x27;équipe.</li>
+        <li>Maintenance et évolution continue des API</li>
+        <li>Suivi et maintenance des API après leur déploiement pour s&#x27;assurer de leur bon fonctionnement dans le temps.</li>
+        <li>Intégration des retours d&#x27;utilisateurs pour améliorer les fonctionnalités des API et répondre aux évolutions des besoins métiers.</li>
+        <li>Mise à jour continue des API pour intégrer de nouvelles fonctionnalités ou pour garantir la compatibilité avec d&#x27;autres outils du système ERP.</li>
+      </ul></div><div class='exp-block'><span class='sub'>Stack &amp; environnement</span><p class='exp-env'>Talend</p><p class='exp-env'>Postman</p><p class='exp-env'>Java</p></div>
+      </div>
+    </details>
+
+    <details class="exp reveal" >
+      <summary class="exp-head">
+        <span class="exp-num">05</span>
+        <span class="exp-id">
+          <span class="exp-company">CGI </span>
+          <span class="exp-role">Consultant Data - Business Intelligence</span>
+        </span>
+        <span class="exp-when">
+          <span class="exp-dates">Févr. 2023 — Juil. 2023</span>
+          <span class="exp-meta"></span>
+        </span>
+        <span class="exp-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="exp-body">
+        <p class='exp-ctx'>CGI intervient pour un grand compte disposant d’un écosystème décisionnel mature, dans lequel les directions métiers pilotent leur activité via des dashboards Power BI déjà largement diffusés. Le contexte de la mission était marqué par une forte dépendance aux dashboards historiques, des problématiques de performance et de lisibilité, ainsi qu’un besoin d’alignement des KPI sur les priorités actualisées de l’entreprise. L’objectif principal était de rationaliser les reportings, d’améliorer la qualité et la performance des tableaux de bord, et d’augmenter l’adoption des solutions BI par les utilisateurs métiers</p>
+        <div class='exp-block'><span class='sub'>Interventions</span><ul class='exp-list'>
+        <li>Réaliser des audits complets des besoins métiers et des reportings existants pour identifier doublons, incohérences d’indicateurs et opportunités de rationalisation.</li>
+        <li>Analyser les processus métier et les flux de données afin d’évaluer l’alignement des dashboards avec les nouveaux objectifs stratégiques de l’entreprise.</li>
+        <li>Maintenir et optimiser les applications Power BI existantes en améliorant les modèles de données, les requêtes SQL et les mesures DAX utilisées dans les tableaux de bord KPI.</li>
+        <li>Améliorer les transformations dans PowerQuery (nettoyage, typage, normalisation) pour fiabiliser les données en amont et réduire la complexité des rapports.</li>
+        <li>Mettre en œuvre des listes SharePoint alimentées via PowerApps, intégrées à Power BI via connecteurs natifs avec actualisation automatique des données métiers.</li>
+        <li>Créer des paramètres dynamiques dans Power BI pour rendre configurable les connexions aux listes et les filtres, facilitant ainsi l’administration et les futures évolutions.</li>
+        <li>Concevoir et affiner des visualisations interactives (segments, Drilldown, Drillthrough, graphiques combinés) pour rendre les rapports plus intuitifs et adaptés aux usages décisionnels.</li>
+        <li>Assurer le support, la formation et la documentation à destination des utilisateurs métiers pour garantir une prise en main autonome et une bonne appropriation des outils.</li>
+      </ul></div><div class='exp-block'><span class='sub'>Résultats</span><ul class='exp-list'>
+        <li>Amélioration de la performance et de la fiabilité : optimisation des modèles, des requêtes SQL et des mesures DAX ayant diminué les temps de rafraîchissement et réduit les incidents liés à la qualité des données dans les rapports clés.</li>
+        <li>Meilleure lisibilité décisionnelle : refonte de visualisations et mise en place de fonctionnalités interactives qui ont facilité l’analyse des KPI par les équipes finance et opérations, notamment via des parcours Drilldown/Drillthrough cohérents.</li>
+        <li>Montée en maturité BI : accompagnement des utilisateurs vers un usage plus autonome de Power BI (compréhension des filtres, lectures des KPI, export d’analyses), renforçant la valeur perçue de la plateforme BI.</li>
+        <li>Base plus robuste pour les évolutions : mise en place de paramètres dynamiques et de connecteurs SharePoint structurés, simplifiant la maintenance des rapports et l’introduction de nouveaux périmètres métiers</li>
+      </ul></div><div class='exp-block'><span class='sub'>Stack &amp; environnement</span><p class='exp-env'>Stack BI &amp; data : Power BI (rapports, modèles sémantiques, paramètres), PowerQuery (M), SQL (requêtes analytiques), SharePoint (listes métiers), PowerApps pour formulaires d’alimentation, usage de Tableau ponctuellement.</p><p class='exp-env'>Intégration &amp; automatisation : connecteurs natifs SharePoint–Power BI, rafraîchissements automatiques, gestion de sources multiples, structuration de modèles dimensionnels pour les KPI stratégiques.</p><p class='exp-env'>Méthodologies : approche Agile (sprints, priorisation continue, ateliers fréquents avec métiers), diagnostic BI, optimisation de performance et gouvernance des dashboards KPI.</p><p class='exp-env'>Environnement humain : équipe BI pluridisciplinaire (consultants data, développeurs Power BI, experts SI, référents métiers) travaillant en étroite collaboration avec les sponsors de la direction financière et opérationnelle.</p></div>
+      </div>
+    </details>
+
+    <details class="exp reveal" >
+      <summary class="exp-head">
+        <span class="exp-num">06</span>
+        <span class="exp-id">
+          <span class="exp-company">Noah Consultant </span>
+          <span class="exp-role">Consultant Data Sciences</span>
+        </span>
+        <span class="exp-when">
+          <span class="exp-dates">Juin 2022 — Déc. 2022</span>
+          <span class="exp-meta"></span>
+        </span>
+        <span class="exp-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="exp-body">
+        <p class='exp-ctx'>Dans le contexte des maisons de Champagne et plus largement des filières agricoles, la volatilité des prix des matières premières constitue un risque majeur pour la planification, le positionnement produit et la stratégie commerciale. Le projet visait à construire un dispositif de modélisation prédictive permettant d’anticiper les variations de prix, de tester des scénarios et d’outiller les décisions stratégiques en s’appuyant sur la data. L’enjeu était d’assembler une chaîne analytique de bout en bout, depuis la collecte multi-sources jusqu’à la restitution compréhensible par les décideurs métier.</p>
+        <div class='exp-block'><span class='sub'>Interventions</span><ul class='exp-list'>
+        <li>Définir les objectifs métier du modèle (horizons de prévision, granularité, variables d’intérêt) en co‑construction avec les parties prenantes.</li>
+        <li>Collecter et préparer les données issues de multiples sources (marchés, météo, historiques internes) en utilisant Python et Dataiku pour standardiser les traitements.</li>
+        <li>Structurer et intégrer les données dans une base MongoDB optimisée pour les requêtes fréquentes et les mises à jour.</li>
+        <li>Implémenter et optimiser des modèles de machine learning (Random Forest) pour prédire la volatilité des prix, avec ajustement des hyperparamètres.</li>
+        <li>Développer un prototype interactif avec Streamlit, connecté à Power BI, pour permettre aux utilisateurs de simuler différents scénarios et visualiser les résultats de façon intuitive.</li>
+        <li>Documenter le modèle, les workflows ETL et les limites d’usage afin de garantir la transparence et la reproductibilité du dispositif</li>
+      </ul></div><div class='exp-block'><span class='sub'>Résultats</span><ul class='exp-list'>
+        <li>Mise à disposition d’un prototype opérationnel : création d’un outil interactif permettant aux équipes métier d’explorer les scénarios de volatilité de prix et d’intégrer ces insights dans leurs décisions de planification et de pricing.</li>
+        <li>Structuration d’un pipeline analytique complet : conception d’un processus industrialisable couvrant collecte, nettoyage, stockage, modélisation et visualisation, réduisant le temps nécessaire pour produire des analyses de volatilité.</li>
+        <li>Renforcement de la culture data : le projet a démontré la valeur de la modélisation prédictive dans un domaine métier complexe, favorisant une meilleure compréhension du potentiel de l’IA pour le pilotage des risques agricoles.</li>
+        <li>Base pour futures industrialisations : la documentation et les choix techniques (Dataiku, Talend, MongoDB, Streamlit, Power BI) ont posé les fondations pour des déploiements ultérieurs plus larges.</li>
+      </ul></div><div class='exp-block'><span class='sub'>Stack &amp; environnement</span><p class='exp-env'>Stack data science : Python (Pandas, Scikit-learn), Random Forest, Streamlit pour interface, visualisation complémentaire via Power BI.</p><p class='exp-env'>Data &amp; ETL : Dataiku pour la conception et l’industrialisation de pipelines, Talend pour l’orchestration et l’intégration, MongoDB comme base NoSQL pour l’hébergement des données agricoles.</p><p class='exp-env'>Méthodologies : démarche itérative (exploration, prototypage, validation métier), documentation structurée, validation statistique et métier des résultats.</p><p class='exp-env'>Environnement humain : collaboration étroite avec des experts vitivinicoles/agroalimentaires, nécessité de traduire des modèles complexes en insights actionnables pour des profils non techniques.</p><p class='exp-env'>#</p></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="wrap" id="competences">
+  <div class="sec-head">
+    <span class="eyebrow">Stack &amp; savoir-faire</span>
+    <h2 class="display-l">Compétences</h2>
+  </div>
+
+  <!-- ── VITRINE MICROSOFT / DATA FABRIC ─────────────────────────────── -->
+  <div class="ms-vitrine">
+    <div class="ms-vitrine-head">
+      <span class="eyebrow">Cœur de spécialité</span>
+      <p class="ms-vitrine-title">Microsoft Data Fabric &amp; Power BI</p>
+    </div>
+    <div class="ms-grid">
+
+      <div class="ms-item reveal">
+        <span class="ms-tech">Microsoft Fabric</span>
+        <span class="ms-desc">Lakehouse, Warehouse, Dataflows Gen2, Semantic Models, Pipelines, OneLake</span>
+      </div>
+      <div class="ms-item reveal">
+        <span class="ms-tech">Power BI</span>
+        <span class="ms-desc">Dashboards stratégiques, modélisation sémantique, gouvernance des rapports</span>
+      </div>
+      <div class="ms-item reveal">
+        <span class="ms-tech">DAX</span>
+        <span class="ms-desc">Mesures complexes, KPI calculés, logiques temporelles alignées sur le métier</span>
+      </div>
+      <div class="ms-item reveal">
+        <span class="ms-tech">Power Query — M</span>
+        <span class="ms-desc">Nettoyage, normalisation et pré-modèle dans les rapports Power BI</span>
+      </div>
+      <div class="ms-item reveal">
+        <span class="ms-tech">SQL Server</span>
+        <span class="ms-desc">Entrepôts analytiques, modèles Fabric Warehouse, datamarts de reporting</span>
+      </div>
+      <div class="ms-item reveal">
+        <span class="ms-tech">Microsoft 365 / Azure</span>
+        <span class="ms-desc">Environnement de travail principal ; intégration SharePoint, Teams, OneDrive</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="ms-divider">
+
+  <!-- ── GRILLE SECONDAIRE ───────────────────────────────────────────── -->
+  <div class="ms-vitrine-head" style="margin-bottom:1.4rem">
+    <span class="eyebrow">Compétences complémentaires</span>
+  </div>
+  <div class="skills-grid">
+
+      <article class="skill-card reveal">
+        <h3 class="skill-cat">Microsoft 365 — Apps &amp; Automate</h3>
+        <ul class="chips"><li class="chip chip-ms" title="Power Apps pour créer des formulaires métier alimentant des listes SharePoint utilisées ensuite dans Power BI (paramètres, référentiels, données d’entrée).">Power Apps</li><li class="chip chip-ms" title="Power Automate pour automatiser des flux de notification, de rafraîchissement ou de synchronisation de données entre M365, SharePoint et Fabric.">Power Automate</li><li class="chip chip-ms" title="SharePoint comme source de données et référentiel dans Power BI">SharePoint</li></ul>
+      </article>
+
+      <article class="skill-card reveal">
+        <h3 class="skill-cat">Langages &amp; requêtage</h3>
+        <ul class="chips"><li class="chip" title="Python (Pandas, NumPy) pour la préparation avancée, les scripts d’ETL, la génération de features et certains jobs hors Dataiku.">Python (Pandas, NumPy)</li><li class="chip" title="DAX (Power BI) pour la création de mesures complexes, de KPI calculés et de logiques temporelles alignées sur le métier.">DAX (Power BI)</li><li class="chip" title="M (Power Query) pour le nettoyage, la normalisation et le pré-modèle dans les rapports Power BI.">M (Power Query)</li><li class="chip" title="SQL (SQL Server, PostgreSQL) pour la modélisation relationnelle, les vues analytiques et les optimisations de requêtes côté entrepôt / Fabric Warehouse.">SQL (SQL Server, PostgreSQL)</li></ul>
+      </article>
+
+      <article class="skill-card reveal">
+        <h3 class="skill-cat">Data Science &amp; MLOps</h3>
+        <ul class="chips"><li class="chip" title="Scikit‑learn (Random Forest, régressions, clustering) pour la construction de modèles prédictifs sur les prix, la performance marketing ou la segmentation clients.">Scikit‑learn</li><li class="chip" title="Streamlit pour exposer rapidement des prototypes de modèles (interfaces de simulation et de visualisation) consommables par les métiers.">Streamlit</li><li class="chip" title="Dataiku comme plateforme centrale de préparation, de modélisation et d’industrialisation de cas d’usage machine learning (Random Forest, segmentation, scoring).">Dataiku</li></ul>
+      </article>
+
+      <article class="skill-card reveal">
+        <h3 class="skill-cat">ETL &amp; intégration</h3>
+        <ul class="chips"><li class="chip" title="Talend API pour exposer ou consommer des services REST intégrés dans les workflows d’ETL et les systèmes ERP, avec tests via Postman.">Talend API</li><li class="chip" title="Postman pour concevoir, documenter et tester les appels API (Talend, services internes, connectors) avant intégration dans les pipelines.">Postman</li><li class="chip" title="Talend pour l’intégration d’API, les jobs d’ETL historiques et les flux vers entrepôts ou data lakes existants.">Talend</li><li class="chip" title="Dataiku comme brique ETL/ELT moderne pour préparer les données, industrialiser les workflows et exposer des jeux de données propres vers Fabric / Power BI.">Dataiku</li><li class="chip chip-ms" title="SSIS (MSBI) pour les environnements clients encore fortement intégrés à la stack SQL Server on‑premise.">SSIS (MSBI)</li><li class="chip" title="Make / n8n pour orchestrer des workflows no‑code/low‑code autour de systèmes externes (API SaaS, CRM, outils marketing).">Make / n8n</li></ul>
+      </article>
+
+      <article class="skill-card reveal">
+        <h3 class="skill-cat">Bases de données</h3>
+        <ul class="chips"><li class="chip" title="SQL Server pour les entrepôts analytiques, les modèles Fabric Warehouse et les datamarts de reporting.">SQL Server</li><li class="chip" title="PostgreSQL pour les bases analytiques dédiées à certains projets ou POCs.">PostgreSQL</li><li class="chip" title="MongoDB comme base NoSQL pour héberger des données agricoles / semi‑structurées et alimenter les modèles prédictifs.">MongoDB</li></ul>
+      </article>
+
+      <article class="skill-card reveal">
+        <h3 class="skill-cat">Méthodes &amp; versionning</h3>
+        <ul class="chips"><li class="chip" title="Git comme socle de gestion de versions pour les scripts Python, les notebooks Dataiku, la configuration de modèles Fabric et la documentation technique.">Git</li><li class="chip" title="GitHub pour héberger les dépôts, gérer les branches par feature, ouvrir des pull requests et suivre les revues de code entre consultants Davidson.">GitHub</li><li class="chip" title="Agile / Scrum pour gérer les itérations autour des dashboards, des modèles sémantiques et des pipelines data.">Agile / Scrum</li><li class="chip" title="Approche MVP pour limiter le risque projet en livrant d’abord un noyau de cas d’usage prioritaire, puis en étendant progressivement la couverture fonctionnelle.">Approche MVP</li></ul>
+      </article>
+
+      <article class="skill-card reveal">
+        <h3 class="skill-cat">Outils collaboratifs</h3>
+        <ul class="chips"><li class="chip" title="Jira pour la gestion Agile des user stories data, tickets d’anomalies et suivi des chantiers Fabric / Power BI.">Jira</li><li class="chip" title="Confluence pour la documentation fonctionnelle et technique des modèles sémantiques, KPI et produits de données.">Confluence</li><li class="chip" title="Miro pour les ateliers de cadrage, la cartographie de flux et les schémas d’architecture data.">Miro</li><li class="chip" title="Notion comme espace de knowledge base pour capitaliser sur les patterns d’architecture, bonnes pratiques DAX/SQL et retours d’expérience projet.">Notion</li></ul>
+      </article>
+
+      <article class="skill-card reveal">
+        <h3 class="skill-cat">Infrastructure &amp; OS</h3>
+        <ul class="chips"><li class="chip" title="Linux (Ubuntu/servers) comme système de base pour les environnements de développement et d’exécution de jobs data, avec gestion des droits d’accès aux fichiers et services.">Linux (Ubuntu/servers)</li><li class="chip" title="SSH + clés pour l’accès sécurisé aux serveurs et aux environnements d’exécution, en cohérence avec les pratiques d’authentification Davidson / clients.">SSH + clés</li><li class="chip" title="Windows comme environnement de travail principal pour Power BI Desktop, outils Microsoft 365 et clients Fabric.">Windows</li><li class="chip" title="Linux pour les workloads data (ETL, scripts Python, containers) et certains environnements serveur / cloud.">Linux</li><li class="chip" title="Streamlit comme micro‑framework Python pour exposer des backends analytiques simples (API internes et interfaces de simulation) au‑dessus de modèles data.">Streamlit</li><li class="chip" title="Ruby on Rails / ReactJS connaissance de support pour comprendre les contraintes applicatives côté front/back.">Ruby on Rails / ReactJS</li><li class="chip" title="VMware pour la gestion d’environnements virtualisés utilisés dans certains clients (EY, CGI) pour héberger les outils BI et les bases analytiques.">VMware</li><li class="chip" title="VirtualBox pour les environnements de tests locaux ou de sandbox techniques.">VirtualBox</li></ul>
+      </article>
+  </div>
+</section>
+
+<section class="wrap" id="formation">
+  <div class="sec-head">
+    <span class="eyebrow">Cursus</span>
+    <h2 class="display-l">Formation</h2>
+  </div>
+  <div class="narrow" style="margin-left:0">
+
+      <article class="edu reveal">
+        <span class="edu-when">Janv. 2022 — Déc. 2022</span>
+        <div class="edu-body">
+          <h3 class="edu-diploma">Bachelor Computer Science Data Analyst &amp; Engineer</h3>
+          <span class="edu-school">M2i</span>
+          <p class='edu-desc'>Cette formation correspond à un cycle Data Analyst / Concepteur·trice développeur·se en science des données, typiquement positionné niveau bac+3/4 et aligné sur les référentiels RNCP autour de la “science des données”.
+
+Python pour la data</p>
+          <ul class='exp-list edu-bul'>
+          <li>Bases du langage (types, boucles, onctions, modules), manipulation de fichiers et scripts d’automatisation.</li>
+          <li>Utilisation de bibliothèques data : Pandas (dataframes, jointures, agrégations), NumPy (calcul matriciel), Matplotlib / Seaborn (visualisation de données).
+
+Statistiques et machine learning.</li>
+          <li>Statistiques descriptives (moyennes, variances, distributions), inférentielles (tests, intervalles de confiance) et probabilités de base.</li>
+          <li>Introduction au machine learning supervisé / non supervisé : régression, classification (logistique, arbres), Random Forest, clustering, évaluation des modèles (cross‑validation, métriques).
+
+SQL et modélisation de données.</li>
+          <li>SQL avancé (JOIN, sous‑requêtes, CTE, fonctions fenêtre) sur PostgreSQL / SQL Server.</li>
+          <li>Modélisation relationnelle (modèles conceptuels/logiques, normalisation) et conception de schémas pour l’analyse (dimensionnel, star schema).
+
+ETL, data pipelines et industrialisation.</li>
+          <li>Principes ETL/ELT, workflow de préparation des données, notions de datawarehouse et datamart.</li>
+          <li>Découverte d’outils comme Dataiku, Talend ou SSIS pour orchestrer extraction, transformation et chargement, traçabilité des traitements et automatisation.
+
+Data visualisation &amp; BI.</li>
+          <li>Conception de dashboards dans Power BI ou Tableau : choix de graphiques, meilleures pratiques UX, construction de KPI et filtres analytiques.</li>
+          <li>Initiation à DAX, Power Query, gouvernance des sources de données et partage de rapports.
+
+Projet de fin de formation.</li>
+          <li>Mise en pratique end‑to‑end : collecte de données, nettoyage, modélisation, entraînement de modèle ML, restitution via un dashboard et une présentation.</li>
+        </ul>
+        </div>
+      </article>
+
+      <article class="edu reveal">
+        <span class="edu-when">Juin 2020 — Déc. 2020</span>
+        <div class="edu-body">
+          <h3 class="edu-diploma">Web Development Fullstack BootCamp</h3>
+          <span class="edu-school">The Hacking Project (THP)</span>
+          <p class='edu-desc'>Le Bootcamp Fullstack Web de THP est une formation intensive ~9 semaines / 450h, très orientée projets, qui couvre l’ensemble de la pile web classique.
+
+Introduction au code &amp; bases front‑end (semaines d’intro)</p>
+          <ul class='exp-list edu-bul'>
+          <li>HTML, CSS, Bootstrap pour construire des interfaces web responsives.</li>
+          <li>Initiation à l’UX/UI (maquettes simples, notions de design et marketing web pour avoir des interfaces utilisables).
+
+Back‑end avec Ruby on Rails.</li>
+          <li>MVC, routes, contrôleurs, modèles, vues, validations, migrations de bases de données.</li>
+          <li>Authentification utilisateur, gestion de sessions, interactions avec une base SQL via ORM.
+
+Front dynamique &amp; JavaScript.</li>
+          <li>JavaScript, DOM, événements, appels AJAX, appels à des API.</li>
+          <li>Usage de Stimulus / Hotwire (ou équivalent) pour apporter de l’interactivité sans rechargement complet de page.
+
+Bases de données &amp; SQL.</li>
+          <li>Conception de schémas, requêtes SQL, relations entre tables, intégration avec Rails.</li>
+          <li>Notions de performance et d’indexation.
+
+Git, GitHub &amp; travail en équipe.</li>
+          <li>Workflow Git, branches, pull requests, gestion de conflits, bonnes pratiques de commit.</li>
+          <li>Organisation de projet en équipe (issues, Kanban, revues de code).
+
+Projets finaux.</li>
+          <li>Développement en équipe d’une application web complexe (type clone de plateforme, marketplace, etc.), du backlog au déploiement.</li>
+          <li>Présentation devant un jury, ce qui entraîne à pitcher, structurer une démo et valoriser ses choix techniques.</li>
+        </ul>
+        </div>
+      </article>
+
+      <article class="edu reveal">
+        <span class="edu-when">Sept. 2008 — Déc. 2013</span>
+        <div class="edu-body">
+          <h3 class="edu-diploma">Master Ingénieur Agronome-Œnologue</h3>
+          <span class="edu-school">AgroParisTech &amp; Montpellier SupAgro</span>
+          <p class='edu-desc'>Le cursus d’ingénieur agronome avec option Viticulture‑Œnologie / DNO combine sciences du vivant, sciences de la vigne et du vin, économie et gestion de projet.
+
+
+Sciences de la vigne</p>
+          <ul class='exp-list edu-bul'>
+          <li>Biologie, anatomie et physiologie de la vigne : fonctionnement de la plante, cycle végétatif, réponse aux contraintes (eau, nutriments, climat).</li>
+          <li>Viticulture et conduite du vignoble : systèmes de taille, densité de plantation, modes de conduite, protection raisonnée, gestion du sol et de la biodiversité.
+
+Œnologie &amp; sciences du vin.</li>
+          <li>Composition des moûts et des vins : sucres, acides, composés azotés, polyphénols, arômes, et leur impact sur la qualité.</li>
+          <li>Microbiologie et fermentation : métabolisme des levures, fermentation alcoolique et malolactique, risques microbiens, maîtrise des fermentations.</li>
+          <li>Technologie œnologique : vinification en blanc / rouge / effervescent, gestion des intrants, élevage, stabilisation, gestion de l’oxygène.
+
+Statistiques, modélisation et expérimentation.</li>
+          <li>Méthodes statistiques appliquées à l’agronomie (plans d’expériences, ANOVA, régression, analyses multivariées) pour analyser des essais au vignoble ou au chai.</li>
+          <li>Modélisation agronomique (croissance, rendement, qualité) et usage d’outils numériques pour interpréter les données de terrain.
+
+Économie, marketing et gestion des filières.</li>
+          <li>Économie de la filière vitivinicole, marchés, stratégie de gamme, positionnement produit, gestion des risques (climat, prix, réglementation).</li>
+          <li>Analyse des chaînes de valeur agroalimentaires, qualité, certifications et durabilité.
+
+Projets &amp; stages.</li>
+          <li>Stage de viticulture / vinification (terrain) et projet d’étude appliqué (ex : impact d’une pratique culturale sur la qualité / le rendement, ou analyse technico‑économique d’un itinéraire).</li>
+        </ul>
+        </div>
+      </article>
+  </div>
+</section>
+
+<section class="wrap" id="langues">
+  <div class="sec-head">
+    <span class="eyebrow">International</span>
+    <h2 class="display-l">Langues</h2>
+  </div>
+  <ul class="langs"><li class="lang">Allemand</li><li class="lang">Anglais</li><li class="lang">Chinois</li><li class="lang">Italien</li><li class="lang">Hébreu</li><li class="lang">Arabe</li></ul>
+</section>
+
+<footer class="wrap">
+  <p class="foot-cta">Parlons d'un <em>diagnostic data</em> pour votre maison.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="mailto:stanislas@noah-consultant.com">Demander un échange</a>
+  </div>
+  <p class="foot-meta">
+    Stanislas BASQUIN — Data Analytics Engineer • Power-BI &amp; Fabric<br>
+    <a href="mailto:stanislas@noah-consultant.com">stanislas@noah-consultant.com</a> ·
+    <a href="https://www.doyoubuzz.com/s-basquin/" target="_blank" rel="noopener">doyoubuzz.com/s-basquin</a><br>
+    Design system : KB-Branding-Design-System — Noah Labs — v1.0
+  </p>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    els.forEach(function(e){e.classList.add('in')});return;
+  }
+  var io=new IntersectionObserver(function(ents){
+    ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
