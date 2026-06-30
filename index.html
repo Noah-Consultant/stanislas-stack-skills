@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stanislas BASQUIN — Data Analytics Engineer • Power-BI &amp; Fabric</title>
-<meta name="description" content="CV en ligne de Stanislas BASQUIN, Data Analytics Engineer • Power-BI &amp; Fabric.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="Dossier de compétences de Stanislas BASQUIN, Data Analytics Engineer • Power-BI &amp; Fabric — spécialiste Microsoft Fabric &amp; Power BI.">
+<meta name="theme-color" content="#0F0208"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -102,6 +102,8 @@ section{padding:clamp(3.5rem,8vw,6.5rem) 0}
 .exp-company{font-family:var(--display); font-weight:500; font-size:1.3rem; color:var(--ivory);
   display:flex; align-items:center; gap:.7rem; line-height:1.2}
 .exp-role{display:block; color:var(--ivory-muted); font-size:.98rem; margin-top:.25rem}
+.exp-mission{display:block; font-family:var(--mono); font-size:.7rem; color:var(--gold);
+  letter-spacing:.03em; margin-top:.4rem}
 .exp-when{text-align:right}
 .exp-dates{display:block; font-family:var(--mono); font-size:.75rem; color:var(--gold-bright);
   letter-spacing:.03em; white-space:nowrap}
@@ -145,14 +147,14 @@ section{padding:clamp(3.5rem,8vw,6.5rem) 0}
 .ms-divider{width:100%; height:1px; border:0; margin:clamp(2rem,4vw,3rem) 0;
   background:linear-gradient(90deg,transparent,rgba(212,160,80,.25) 30%,rgba(212,160,80,.25) 70%,transparent)}
 
-/* SKILLS — grille secondaire */
-.skills-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1px;
+/* SKILLS — grille secondaire : 3×3 fixe */
+.skills-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
   background:rgba(212,160,80,.10); border:1px solid rgba(212,160,80,.10)}
 .skill-card{background:var(--coffee-deep); padding:1.4rem 1.35rem; transition:background .4s var(--ease-out)}
 .skill-card:hover{background:var(--coffee-raised)}
 .skill-cat{font-family:var(--display); font-weight:500; font-size:1rem; color:var(--ivory);
   margin-bottom:.9rem; padding-bottom:.65rem; border-bottom:1px solid rgba(212,160,80,.16)}
-.chips{list-style:none; display:flex; flex-wrap:wrap; gap:.45rem}
+.chips{list-style:none; display:flex; flex-wrap:wrap; gap:.45rem; align-content:flex-start}
 .chip{font-family:var(--mono); font-size:.7rem; color:var(--ivory-muted);
   border:1px solid rgba(212,160,80,.25); padding:.32rem .6rem; border-radius:2px;
   cursor:default; transition:.3s var(--ease-out)}
@@ -160,6 +162,16 @@ section{padding:clamp(3.5rem,8vw,6.5rem) 0}
 /* chip or : technos Microsoft secondaires */
 .chip-ms{color:var(--gold-bright); border-color:rgba(212,160,80,.5)}
 .chip-ms:hover{color:var(--gold-flash); border-color:var(--gold-flash)}
+
+@media (max-width:900px) and (min-width:561px){
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  /* 9 cartes en grille 2 colonnes → la 9e (dernière) s'étend pour combler la ligne */
+  .skill-card:nth-child(9){grid-column:1 / -1}
+  .skill-card:nth-child(9) .chips{max-width:none}
+}
+@media (max-width:560px){
+  .skills-grid{grid-template-columns:1fr}
+}
 
 @media (max-width:900px){
   .ms-grid{grid-template-columns:repeat(2,1fr)}
@@ -182,10 +194,10 @@ section{padding:clamp(3.5rem,8vw,6.5rem) 0}
 .edu-bul{margin-top:.9rem; max-width:66ch}
 .edu-bul li{font-size:.92rem}
 
-/* LANGUAGES */
-.langs{list-style:none; display:flex; flex-wrap:wrap; gap:.7rem}
-.lang{font-family:var(--mono); font-size:.82rem; color:var(--ivory); letter-spacing:.02em;
-  border:1px solid rgba(212,160,80,.3); padding:.55rem 1rem}
+/* LANGUAGES — mention discrète, non structurante */
+.langs-inline{margin-top:clamp(2.2rem,4vw,3rem); padding-top:1.4rem;
+  border-top:1px solid rgba(212,160,80,.12); color:var(--parchment-dim); font-size:.7rem;
+  letter-spacing:.04em}
 
 /* FOOTER */
 footer{border-top:1px solid rgba(212,160,80,.18); padding:clamp(3rem,6vw,5rem) 0}
@@ -230,12 +242,12 @@ a:focus-visible, summary:focus-visible{outline:2px solid var(--gold-flash); outl
 
 <header class="hero wrap">
   <div class="monogram" aria-hidden="true">SB</div>
-  <span class="eyebrow">Curriculum Vitæ · Réf. NOAH-LABS-CHARTE-20260603-v1</span>
+  <span class="eyebrow">Dossier de compétences · Réf. NOAH-LABS-CHARTE-20260603-v1</span>
   <hr class="rule-gold">
   <h1 class="display-xl">Stanislas BASQUIN</h1>
   <p class="lede">Data Analytics Engineer • Power-BI &amp; Fabric</p>
   <p class="intro">Data Analyst spécialisé Power BI et Microsoft Fabric, j’aide les équipes métiers à transformer des besoins complexes en modèles sémantiques clairs, KPI fiables et tableaux de bord gouvernés. Fort d’expériences exigeantes chez Ernst &amp; Young et CGI, je conçois des solutions analytiques robustes, orientées décision et adoption utilisateur, en m’appuyant sur une maîtrise avancée de SQL, DAX et des plateformes data modernes.</p>
-  <div class="figs"><div class="fig"><span class="fig-n">+4</span><span class="fig-l">ans d'expérience Data &amp; BI</span></div><div class="fig"><span class="fig-n">3</span><span class="fig-l">environnements de conseil — EY · CGI · Noah</span></div><div class="fig"><span class="fig-n">6</span><span class="fig-l">langues de travail</span></div><div class="fig"><span class="fig-n">DP-600 / 700</span><span class="fig-l">certifications Microsoft en préparation</span></div></div>
+  <div class="figs"><div class="fig"><span class="fig-n">+4</span><span class="fig-l">ans d'expérience Data &amp; BI</span></div><div class="fig"><span class="fig-n">3</span><span class="fig-l">environnements de conseil — EY · CGI · Noah</span></div><div class="fig"><span class="fig-n">Fabric</span><span class="fig-l">spécialisation Microsoft Data Platform</span></div><div class="fig"><span class="fig-n">DP-600 / 700</span><span class="fig-l">certifications Microsoft en préparation</span></div></div>
   <div class="cta-row">
     <a class="btn btn-primary" href="mailto:stanislas@noah-consultant.com">Me contacter</a>
     <a class="btn btn-ghost" href="https://www.doyoubuzz.com/s-basquin/" target="_blank" rel="noopener">Profil en ligne</a>
@@ -249,12 +261,13 @@ a:focus-visible, summary:focus-visible{outline:2px solid var(--gold-flash); outl
   </div>
   <div class="timeline">
 
-    <details class="exp reveal" open>
+    <details class="exp reveal" data-exp-id="1" open>
       <summary class="exp-head">
         <span class="exp-num">01</span>
         <span class="exp-id">
           <span class="exp-company">Noah Labs <span class="pip-now">En poste</span></span>
           <span class="exp-role">Noah Labs – Fondateur, Consultant Data &amp; IA</span>
+          
         </span>
         <span class="exp-when">
           <span class="exp-dates">Nov. 2025 — Aujourd&#x27;hui</span>
@@ -280,12 +293,13 @@ a:focus-visible, summary:focus-visible{outline:2px solid var(--gold-flash); outl
       </div>
     </details>
 
-    <details class="exp reveal" >
+    <details class="exp reveal" data-exp-id="2" >
       <summary class="exp-head">
         <span class="exp-num">02</span>
         <span class="exp-id">
           <span class="exp-company">Ernst &amp; Young </span>
           <span class="exp-role">Consultant Senior Data Analytics BI</span>
+          
         </span>
         <span class="exp-when">
           <span class="exp-dates">Mars 2025 — Oct. 2025</span>
@@ -313,12 +327,13 @@ a:focus-visible, summary:focus-visible{outline:2px solid var(--gold-flash); outl
       </div>
     </details>
 
-    <details class="exp reveal" >
+    <details class="exp reveal" data-exp-id="3" >
       <summary class="exp-head">
         <span class="exp-num">03</span>
         <span class="exp-id">
           <span class="exp-company">Noah Consultant </span>
           <span class="exp-role">Consultant Data Analytics</span>
+          
         </span>
         <span class="exp-when">
           <span class="exp-dates">Mars 2024 — Juin 2024</span>
@@ -344,12 +359,13 @@ a:focus-visible, summary:focus-visible{outline:2px solid var(--gold-flash); outl
       </div>
     </details>
 
-    <details class="exp reveal" >
+    <details class="exp reveal" data-exp-id="4" >
       <summary class="exp-head">
         <span class="exp-num">04</span>
         <span class="exp-id">
           <span class="exp-company">CGI </span>
           <span class="exp-role">Consultant Data - Business Intelligence</span>
+          <span class='exp-mission'>Développement d&#x27;API REST pour ERP — secteur retail</span>
         </span>
         <span class="exp-when">
           <span class="exp-dates">Juil. 2023 — Nov. 2023</span>
@@ -382,12 +398,13 @@ a:focus-visible, summary:focus-visible{outline:2px solid var(--gold-flash); outl
       </div>
     </details>
 
-    <details class="exp reveal" >
+    <details class="exp reveal" data-exp-id="5" >
       <summary class="exp-head">
         <span class="exp-num">05</span>
         <span class="exp-id">
           <span class="exp-company">CGI </span>
           <span class="exp-role">Consultant Data - Business Intelligence</span>
+          <span class='exp-mission'>Rationalisation du reporting Power BI — grand compte</span>
         </span>
         <span class="exp-when">
           <span class="exp-dates">Févr. 2023 — Juil. 2023</span>
@@ -415,12 +432,13 @@ a:focus-visible, summary:focus-visible{outline:2px solid var(--gold-flash); outl
       </div>
     </details>
 
-    <details class="exp reveal" >
+    <details class="exp reveal" data-exp-id="6" >
       <summary class="exp-head">
         <span class="exp-num">06</span>
         <span class="exp-id">
           <span class="exp-company">Noah Consultant </span>
           <span class="exp-role">Consultant Data Sciences</span>
+          
         </span>
         <span class="exp-when">
           <span class="exp-dates">Juin 2022 — Déc. 2022</span>
@@ -523,13 +541,18 @@ a:focus-visible, summary:focus-visible{outline:2px solid var(--gold-flash); outl
       </article>
 
       <article class="skill-card reveal">
-        <h3 class="skill-cat">Méthodes &amp; versionning</h3>
-        <ul class="chips"><li class="chip" title="Git comme socle de gestion de versions pour les scripts Python, les notebooks Dataiku, la configuration de modèles Fabric et la documentation technique.">Git</li><li class="chip" title="GitHub pour héberger les dépôts, gérer les branches par feature, ouvrir des pull requests et suivre les revues de code entre consultants Davidson.">GitHub</li><li class="chip" title="Agile / Scrum pour gérer les itérations autour des dashboards, des modèles sémantiques et des pipelines data.">Agile / Scrum</li><li class="chip" title="Approche MVP pour limiter le risque projet en livrant d’abord un noyau de cas d’usage prioritaire, puis en étendant progressivement la couverture fonctionnelle.">Approche MVP</li></ul>
+        <h3 class="skill-cat">Versioning &amp; tests</h3>
+        <ul class="chips"><li class="chip" title="Git comme socle de gestion de versions pour les scripts Python, les notebooks Dataiku, la configuration de modèles Fabric et la documentation technique.">Git</li><li class="chip" title="GitHub pour héberger les dépôts, gérer les branches par feature, ouvrir des pull requests et suivre les revues de code entre consultants Davidson.">GitHub</li><li class="chip" title="Pytest pour tester les fonctions Python de préparation de données, transformations et calculs de KPI avant intégration dans les pipelines (Dataiku, scripts d’ingestion Fabric).">Pytest</li><li class="chip" title="Unit tests Dataiku / scénarios de validation pour vérifier la cohérence des jeux de données intermédiaires (qualité, schéma, distributions) avant publication vers Power BI.">Unit tests Dataiku</li></ul>
+      </article>
+
+      <article class="skill-card reveal">
+        <h3 class="skill-cat">Méthodes &amp; gestion de projet</h3>
+        <ul class="chips"><li class="chip" title="Agile / Scrum pour gérer les itérations autour des dashboards, des modèles sémantiques et des pipelines data.">Agile / Scrum</li><li class="chip" title="Approche MVP pour limiter le risque projet en livrant d’abord un noyau de cas d’usage prioritaire, puis en étendant progressivement la couverture fonctionnelle.">Approche MVP</li><li class="chip" title="Jira pour la gestion Agile des user stories data, tickets d’anomalies et suivi des chantiers Fabric / Power BI.">Jira</li></ul>
       </article>
 
       <article class="skill-card reveal">
         <h3 class="skill-cat">Outils collaboratifs</h3>
-        <ul class="chips"><li class="chip" title="Jira pour la gestion Agile des user stories data, tickets d’anomalies et suivi des chantiers Fabric / Power BI.">Jira</li><li class="chip" title="Confluence pour la documentation fonctionnelle et technique des modèles sémantiques, KPI et produits de données.">Confluence</li><li class="chip" title="Miro pour les ateliers de cadrage, la cartographie de flux et les schémas d’architecture data.">Miro</li><li class="chip" title="Notion comme espace de knowledge base pour capitaliser sur les patterns d’architecture, bonnes pratiques DAX/SQL et retours d’expérience projet.">Notion</li></ul>
+        <ul class="chips"><li class="chip" title="Confluence pour la documentation fonctionnelle et technique des modèles sémantiques, KPI et produits de données.">Confluence</li><li class="chip" title="Miro pour les ateliers de cadrage, la cartographie de flux et les schémas d’architecture data.">Miro</li><li class="chip" title="Notion comme espace de knowledge base pour capitaliser sur les patterns d’architecture, bonnes pratiques DAX/SQL et retours d’expérience projet.">Notion</li></ul>
       </article>
 
       <article class="skill-card reveal">
@@ -647,20 +670,13 @@ Projets &amp; stages.</li>
         </div>
       </article>
   </div>
-</section>
-
-<section class="wrap" id="langues">
-  <div class="sec-head">
-    <span class="eyebrow">International</span>
-    <h2 class="display-l">Langues</h2>
-  </div>
-  <ul class="langs"><li class="lang">Allemand</li><li class="lang">Anglais</li><li class="lang">Chinois</li><li class="lang">Italien</li><li class="lang">Hébreu</li><li class="lang">Arabe</li></ul>
+  <p class="langs-inline mono">Langues parlées — Allemand, Anglais, Chinois, Italien, Hébreu, Arabe</p>
 </section>
 
 <footer class="wrap">
-  <p class="foot-cta">Parlons d'un <em>diagnostic data</em> pour votre maison.</p>
+  <p class="foot-cta">Disponible pour une mission, un échange technique ou un <em>diagnostic data</em>.</p>
   <div class="cta-row">
-    <a class="btn btn-primary" href="mailto:stanislas@noah-consultant.com">Demander un échange</a>
+    <a class="btn btn-primary" href="mailto:stanislas@noah-consultant.com">Me contacter</a>
   </div>
   <p class="foot-meta">
     Stanislas BASQUIN — Data Analytics Engineer • Power-BI &amp; Fabric<br>
@@ -680,6 +696,20 @@ Projets &amp; stages.</li>
     ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e)});
+})();
+
+/* Accordéon exclusif — une seule expérience ouverte à la fois */
+(function(){
+  var details=document.querySelectorAll('details.exp');
+  details.forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if(d.open){
+        details.forEach(function(other){
+          if(other!==d && other.open) other.open=false;
+        });
+      }
+    });
+  });
 })();
 </script>
 </body>
